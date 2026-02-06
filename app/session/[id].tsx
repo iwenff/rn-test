@@ -9,8 +9,7 @@ import {
   View,
 } from "react-native";
 import { calculateSeverity } from "../../src/domain/severity";
-
-const API_BASE_URL = "http://81.163.27.191:8000";
+import { API_BASE_URL } from "@/src/config";
 
 type EventItem = {
   id?: string;
@@ -100,7 +99,7 @@ export default function SessionDetailsScreen() {
 
   const severity = calculateSeverity(
     details.stats as any,
-    details.flags?.corrupted,
+    details.flags?.corrupted
   );
 
   const pending = detectPendingRequests(details.events);
